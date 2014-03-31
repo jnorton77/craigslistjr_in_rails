@@ -2,7 +2,7 @@
   <h1>Welcome to Craigslist, Jr.!</h1>
   <ol>
   <% @categories.each do |cat| %>
-    <li><%= cat.name %></li>
+    <li><%= link_to cat.name, category_path(cat) %></li>
   <% end %>
 </ol>
 </div>

@@ -10,8 +10,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    # render text: params[:category].inspect
-    @category = Category.new(params[:category].permit(:name))
+    @category = Category.new(category_params)
     @category.save
     redirect_to @category
   end
