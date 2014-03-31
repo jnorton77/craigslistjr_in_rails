@@ -1,8 +1,12 @@
 <div class="container">
   <h1>Welcome to Craigslist, Jr.!</h1>
-  <ol>
+  <ul>
   <% @categories.each do |cat| %>
-    <li><%= link_to cat.name, category_path(cat) %></li>
+    <li>
+      <%= link_to cat.name, category_path(cat) %>
+      <%= link_to "destroy", category_path(cat),
+        method: :delete, data: {confirm: 'Are you sure?'} %>
+    </li>
   <% end %>
-</ol>
+</ul>
 </div>
