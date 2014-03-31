@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Welcome to Craigless!</h1>
+
+  <% @catagories.each do |cat| %>
+    <%= erb :_catagory_title, locals: {cat: cat} %>
+    <% cat.posts.each do |post| %>
+      <div class='post-title'><%= erb :_post_title, locals: {post: post} %></div>
+    <% end %>
+  <% end %>
+</div>
