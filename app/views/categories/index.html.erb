@@ -6,6 +6,7 @@
       <%= link_to cat.name, category_path(cat) %>
       <%= link_to "destroy", category_path(cat),
         method: :delete, data: {confirm: 'Are you sure?'} %>
+
     </li>
   <% end %>
 </ul>
