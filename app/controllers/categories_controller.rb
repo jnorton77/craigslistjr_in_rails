@@ -6,18 +6,25 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @categories = Category.new
+    @category = Category.new
   end
 
   def create
-    # render text: params[:categories].inspect
-    @categories = Category.new(params[:categories].permit(:name))
-    @categories.save
-    redirect_to @categories
+    # render text: params[:category].inspect
+    @category = Category.new(params[:category].permit(:name))
+    @category.save
+    redirect_to @category
   end
 
   def show
     @category = Category.find(params[:id])
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+
+    redirect_to categories_path
   end
 
   private
