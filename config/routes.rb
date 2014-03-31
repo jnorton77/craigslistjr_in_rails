@@ -1,7 +1,9 @@
 CraigsList::Application.routes.draw do
 
   get "categories/index"
-  resources :categories
+  resources :categories do
+    resources :posts
+  end
 
   root to: "categories#index"
   # The priority is based upon order of creation: first created -> highest priority.
