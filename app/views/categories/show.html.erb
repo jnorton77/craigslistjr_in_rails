@@ -2,4 +2,34 @@
 <h1>Category:
 <%= @category.name %></h1>
 </p>
+
+<h2>Posts</h2>
+<% @category.posts.each do |post| %>
+  <p>
+    <strong>Title:</strong>
+    <%= post.title %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= post.description %>
+  </p>
+  <% end %>
+
+<h2>Add Post:</h2>
+<%= form_for([@category, @category.posts.build]) do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </p>
+    <%= f.label 'Category:' %>
+    <%= select_tag(:category_id, options_for_select([[@category.name, @category.id]])) %>
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>
+
 <%= link_to 'All categories', categories_path %>
